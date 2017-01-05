@@ -80,7 +80,7 @@ apiRoutes.get('/dashboard', passport.authenticate('jwt', { session: false }), fu
 
 // Set url for API group routes
 app.use('/api', apiRoutes);  
-// Home route. We'll end up changing this to our main front end index later.
+// Home route. 
 app.get('/', function(req, res) {  
   res.send('Relax. We will put the home page here later.');
 });

@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');  
 var passport = require('passport'); 
 
-// db id/name and secret stored in main
+// db id/name and secret stored in config/main
 var config = require('./config/main'); 
 var User = require('./app/models/user');
 var jwt = require('jsonwebtoken');  
@@ -32,10 +32,10 @@ require('./config/passport')(passport);
  		res.json({success:false, message: "Please enter an email and password to register."});
 	} else {
 		var newUser = newUser({
-			email: req.body.email;
-			password: req.body.password;
+			email: req.body.email,
+			password: req.body.password
 		});
-	},
+	}
 
 // attempt to save new user / .save is mongoose method
 	newUser.save (function(err){
